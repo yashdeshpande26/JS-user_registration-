@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+    <h1>Registered Users</h1>
+    <ul id="userList"></ul>
+
+    <script>
+        // Retrieve the stored user data from local storage
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const userList = document.getElementById("userList");
+
+        users.forEach(user => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${user.firstName} ${user.lastName} - ${user.email}`;
+            userList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
